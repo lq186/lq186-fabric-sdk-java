@@ -1,0 +1,91 @@
+debug: true
+
+server:
+  tomcat:
+    max-threads: 200
+    min-spare-threads: 100
+    accept-count: 10000
+    
+spring:
+  kafka:
+    producer:
+      bootstrap-servers:
+      - 127.0.0.1:9092
+        127.0.0.1:9093
+        127.0.0.1:9094
+        127.0.0.1:9095
+      retries: 0
+      batch-size: 4096
+      buffer-memory: 40960
+      value-serializer:
+        com.lq186.fabric.sdk.kafka.ProtobufSerializer
+        
+        
+fabric:
+  store-path: /workspace/temp/fabric/hfs-sino-wallet.data
+  channel-name: mychannel
+  sdk-org: Org1
+  orgs:
+  - name: Org1
+    domain-name: org1.example.com
+    msp-id: Org1MSP
+    username: Admin
+    useTLS: true
+    peers:
+    - name: peer0.org1.example.com
+      location: grpcs://peer0.org1.example.com:7051
+      ca-location: https://ca_peerOrg1:7054
+      event-hub-name: peer0Ogr1EventHub
+      event-hub-location: grpcs://peer0.org1.example.com:7053
+      add-event-hub: true
+    orderers:
+      domain-name: example.com
+      orderers:
+      - name: orderer0.example.com
+        location: grpcs://orderer0.example.com:7050
+        
+#  - name: Org2
+#    domain-name: org2.example.com
+#    msp-id: Org2MSP
+#    username: Admin
+#    useTLS: true
+#    peers:
+#    - name: peer0.org2.example.com
+#      location: grpcs://peer0.org2.example.com:9051
+#      ca-location: https://ca_peerOrg2:7054
+#      event-hub-name: peer0Ogr2EventHub
+#      event-hub-location: grpcs://peer0.org2.example.com:9053
+#      add-event-hub: false
+#    orderers:
+#      domain-name: example.com
+#      orderers:
+#      - name: orderer1.example.com
+#        location: grpcs://orderer1.example.com:9050
+#        
+#  - name: Org3
+#    domain-name: org3.example.com
+#    msp-id: Org3MSP
+#    username: Admin
+#    useTLS: true
+#    peers:
+#    - name: peer0.org3.example.com
+#      location: grpcs://peer0.org3.example.com:11051
+#      ca-location: https://ca_peerOrg3:7054
+#      event-hub-name: peer0Ogr3EventHub
+#      event-hub-location: grpcs://peer0.org3.example.com:11053
+#      add-event-hub: false
+#    orderers:
+#      domain-name: example.com
+#      orderers:
+#      - name: orderer2.example.com
+#        location: grpcs://orderer2.example.com:11050
+  register-event: false
+  block-listener: com.lq186.fabric.sdk.listener.NoOperationBlockListener
+  chaincode:
+    name: SimpleChaincode
+    version: 1.0
+    path: github.com/example_cc
+    
+    
+    
+    
