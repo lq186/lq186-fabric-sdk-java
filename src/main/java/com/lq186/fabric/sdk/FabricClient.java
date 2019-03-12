@@ -2,14 +2,14 @@ package com.lq186.fabric.sdk;
 
 import javax.annotation.Resource;
 
-import com.lq186.fabric.sdk.channel.FabricChannel;
-import com.lq186.fabric.sdk.peer.Peer;
 import org.bouncycastle.util.encoders.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.lq186.fabric.sdk.chaincode.Chaincode;
+import com.lq186.fabric.sdk.channel.FabricChannel;
+import com.lq186.fabric.sdk.peer.Peer;
 
 @Component
 public final class FabricClient {

@@ -18,7 +18,7 @@ spring:
       batch-size: 4096
       buffer-memory: 40960
       value-serializer:
-        com.lq186.fabric.sdk.kafka.ProtobufSerializer
+        ProtobufSerializer
         
         
 fabric:
@@ -80,7 +80,7 @@ fabric:
 #      - name: orderer2.example.com
 #        location: grpcs://orderer2.example.com:11050
   register-event: false
-  block-listener: com.lq186.fabric.sdk.listener.NoOperationBlockListener
+  block-listener: NoOperationBlockListener
   chaincode:
     name: SimpleChaincode
     version: 1.0

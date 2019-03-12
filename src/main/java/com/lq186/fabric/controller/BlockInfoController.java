@@ -4,9 +4,8 @@ import java.util.concurrent.Callable;
 
 import javax.annotation.Resource;
 
-import com.lq186.fabric.sdk.FabricClient;
-import com.lq186.fabric.sdk.FabricResult;
-import com.lq186.fabric.sdk.ResultCode;
+import com.lq186.fabric.bean.FabricBlockInfo;
+import com.lq186.fabric.bean.FabricEnvelopeInfo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lq186.fabric.bean.FabricBlockInfo;
-import com.lq186.fabric.bean.FabricEnvelopeInfo;
+import com.lq186.fabric.sdk.FabricClient;
+import com.lq186.fabric.sdk.FabricResult;
+import com.lq186.fabric.sdk.ResultCode;
 
 @RestController
 @RequestMapping(value = "/block")
@@ -26,8 +26,8 @@ public class BlockInfoController {
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Callable<FabricResult> queryBlockByNumber(@RequestParam(name = "number", required = false) Long number,
-                                                     @RequestParam(name = "hash", required = false) String hash,
-                                                     @RequestParam(name = "txid", required = false) String txid) {
+			@RequestParam(name = "hash", required = false) String hash,
+			@RequestParam(name = "txid", required = false) String txid) {
 		return new Callable<FabricResult>() {
 			@Override
 			public FabricResult call() throws Exception {

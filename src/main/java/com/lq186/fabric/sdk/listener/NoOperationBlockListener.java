@@ -1,9 +1,8 @@
 package com.lq186.fabric.sdk.listener;
 
+import com.lq186.fabric.bean.FabricBlockInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.lq186.fabric.bean.FabricBlockInfo;
 
 public class NoOperationBlockListener implements FabricBlockListener {
 

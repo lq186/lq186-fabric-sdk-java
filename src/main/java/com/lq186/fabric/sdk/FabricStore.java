@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import com.lq186.fabric.util.PathUtils;
 import org.apache.commons.io.IOUtils;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -25,8 +26,6 @@ import org.bouncycastle.util.encoders.Hex;
 import org.hyperledger.fabric.sdk.Enrollment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.lq186.fabric.util.PathUtils;
 
 public class FabricStore {
 
@@ -89,7 +88,7 @@ public class FabricStore {
 			fabricUser.setFabricStore(this);
 			fabricUser.setMspId(mspId);
 			try (InputStream certInStream = PathUtils.path2InputStream(certificatePath);
-					InputStream skInStream = PathUtils.path2InputStream(skPath)) {
+                 InputStream skInStream = PathUtils.path2InputStream(skPath)) {
 				String certificate = new String(IOUtils.toByteArray(certInStream), "UTF-8");
 				PrivateKey privateKey = getPrivateKeyFromBytes(IOUtils.toByteArray(skInStream));
 				fabricUser.setEnrollment(new StoreEnrollement(privateKey, certificate));

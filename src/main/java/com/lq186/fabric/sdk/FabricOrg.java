@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.lq186.fabric.sdk.peer.Peer;
 import org.hyperledger.fabric.sdk.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.lq186.fabric.sdk.orderer.Orderers;
+import com.lq186.fabric.sdk.peer.Peer;
 
 public class FabricOrg {
 

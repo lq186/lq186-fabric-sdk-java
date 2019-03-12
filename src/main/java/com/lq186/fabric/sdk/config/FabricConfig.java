@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lq186.fabric.sdk.FabricOrg;
+import com.lq186.fabric.util.PathUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import com.lq186.fabric.sdk.FabricOrg;
 import com.lq186.fabric.sdk.chaincode.Chaincode;
 import com.lq186.fabric.sdk.listener.FabricBlockListener;
-import com.lq186.fabric.util.PathUtils;
 
 @Configuration
 @ConfigurationProperties(prefix = "fabric")
